@@ -39,7 +39,23 @@ In this guide, you will build a simple Ballerina Hello World service, and you wi
 
 ## Implementation
 
-As the first step, you can build a Ballerina service that gives an UUID as the output. You can simply create a file `hello_world_service.bal` and add the following content to the service code.
+### Create the project structure
+
+Ballerina is a complete programming language that can have any custom project structure that you wish. Although the language allows you to have any module structure, use the following module structure for this project to follow this guide.
+```
+ballerina-gke-deployment
+ └── guide
+      └── hello_world_service.bal
+```
+
+- Create the above directories in your local machine and also create empty `.bal` file.
+
+- Then open the terminal and navigate to `ballerina-gke-deployment/guide` and run Ballerina project initializing toolkit.
+```bash
+   $ ballerina init
+```
+
+As the first step, add the following content to the hello_world_service.bal.
 
 ```ballerina
 import ballerina/http;
@@ -112,7 +128,7 @@ We will be building a Docker image here and publishing it to Docker Hub. This is
 You can build the Ballerina service using `$ ballerina build hello_world_service.bal`. You should be able to see the following output.
 
 ```bash
-$ ballerina build src/hello_world_service.bal
+$ ballerina build guide/hello_world_service.bal
 Compiling source
     hello_world_service.bal
 Generating executable
@@ -144,7 +160,7 @@ Next step is gcloud configuration and creating a Google Cloud Platform project.
 You can begin with `gcloud init` command.
 
 ```bash
->$ gcloud init
+$ gcloud init
 Welcome! This command will take you through the configuration of gcloud.
 
 Your current configuration has been set to: [default]
@@ -189,7 +205,7 @@ able to do this for you the next time you run it, make sure the
 Compute Engine API is enabled for your project on the
 https://console.developers.google.com/apis page.
 
-Created a default .boto configuration file at [/home/kasun/.boto]. See this file and
+Created a default .boto configuration file at [/home/manurip/.boto]. See this file and
 [https://cloud.google.com/storage/docs/gsutil/commands/config] for more
 information about configuring Google Cloud Storage.
 Your Google Cloud SDK is configured and ready to use!
