@@ -42,15 +42,17 @@ In this guide, you will build a simple Ballerina Hello World service, and you wi
 ### Create the project structure
 
 Ballerina is a complete programming language that can have any custom project structure that you wish. Although the language allows you to have any module structure, use the following module structure for this project to follow this guide.
+
 ```
 ballerina-gke-deployment
  └── guide
       └── hello_world_service.bal
 ```
 
-- Create the above directories in your local machine and also create empty `.bal` file.
+- Create the above directories in your local machine and also create an empty `.bal` file.
 
-- Then open the terminal and navigate to `ballerina-gke-deployment/guide` and run Ballerina project initializing toolkit.
+- Open the terminal and navigate to `ballerina-gke-deployment/guide` and run Ballerina project initializing toolkit.
+
 ```bash
    $ ballerina init
 ```
@@ -123,7 +125,8 @@ service hello on httpListener {
 }
 
 ```
-We will be building a Docker image here and publishing it to Docker Hub. This is required, since we cannot simply have the Docker image in the local registry, and run the Kubernetes applicates in GKE, where it needs to have access to the Docker image in a globally accessible location. For this, an image name should be given in the format $username/$image_name in the "image" property, and "username" and "password" properties needs to contain the Docker Hub account username and password respectively. The property "push" is set to "true" to signal the build process to push the build Docker image to Docker Hub.
+
+We will be building a Docker image here and publishing it to Docker Hub. This is required, since we cannot simply have the Docker image in the local registry, and run the Kubernetes applicates in GKE, where it needs to have access to the Docker image in a globally accessible location. For this, an image name should be given in the format `$username/$image_name` in the "image" property, and "username" and "password" properties needs to contain the Docker Hub account username and password respectively. The property "push" is set to "true" to signal the build process to push the build Docker image to Docker Hub.
 
 You can build the Ballerina service using `$ ballerina build hello_world_service.bal`. You should be able to see the following output.
 
@@ -183,8 +186,7 @@ Your browser has been opened to visit:
 
 Once you click on the provided link, you will be prompted to login to your Google account and authorize.
 
-Once authentication flow completes, you will be prompted to create a new project or choose an existing project as the
-current project. Here, we are creating a project named "BallerinaDemo"
+Once authentication flow completes, you will be prompted to create a new project or choose an existing project as the current project. Here, we are creating a project named "BallerinaDemo".
 
 ```bash
 This account has no projects.
@@ -222,7 +224,7 @@ ballerinademo-225007      BallerinaDemo     1036334079773
 - Create the Kubernetes cluster
 
 Next step is creating a kubernetes cluster in the project we just created.
-With a command similar to below, you can create a cluster with minimal resources.
+With a command similar to the following, you can create a cluster with minimal resources.
 
 ```bash
 gcloud container clusters create ballerina_demo_cluster --zone us-central1 --machine-type g1-small --disk-size 30GB --max-nodes-per-pool 1
@@ -238,8 +240,7 @@ ballerina-demo-cluster  us-central1  1.9.7-gke.11    35.239.235.173  g1-small   
 
 Also, with `kubectl get nodes` commands you can verify the connection to the cluster. In next steps we'll be using
 `kubectl` in order to create our kubernetes deployment.
-Please note that when you create a cluster using gcloud container clusters create, an entry is automatically added to the kubeconfig in your environment, and the current context changes to that cluster. Therefore, we don't have to do any manual
-configuration to make it possible for `kubectl` to talk to the cluster.
+Please note that when you create a cluster using gcloud container clusters create, an entry is automatically added to the kubeconfig in your environment, and the current context changes to that cluster. Therefore, we don't have to do any manual configuration to make it possible for `kubectl` to talk to the cluster.
 
 ```bash
 $ kubectl get nodes
