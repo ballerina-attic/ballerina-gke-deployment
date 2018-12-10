@@ -285,5 +285,3 @@ You've just deployed your first Ballerina service in GKE!. You can test out the 
 $ curl http://$EXTERNAL-IP/hello/sayHello
 Hello, World!
 ```
-
-
