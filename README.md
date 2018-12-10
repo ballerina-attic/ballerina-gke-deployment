@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ballerina-guides/ballerina-gcp-deployment.svg?branch=master)](https://travis-ci.org/ballerina-guides/ballerina-gcp-deployment)
+[![Build Status](https://travis-ci.org/ballerina-guides/ballerina-gke-deployment.svg?branch=master)](https://travis-ci.org/ballerina-guides/ballerina-gke-deployment)
 
 # Ballerina Deployment with Google Cloud Platoform Kubernetes Engine
 
@@ -140,10 +140,10 @@ Generating executable
         @kubernetes:Helm                         - complete 1/1
 
         Run the following command to deploy the Kubernetes artifacts:
-        kubectl apply -f /home/manurip/Documents/Work/Repositories/ballerina-gcp-deployment/kubernetes/
+        kubectl apply -f /home/manurip/Documents/Work/Repositories/ballerina-gke-deployment/kubernetes/
 
         Run the following command to install the application using Helm:
-        helm install --name hello-world-service-deployment /home/manurip/Documents/Work/Repositories/ballerina-gcp-deployment/kubernetes/hello-world-service-deployment
+        helm install --name hello-world-service-deployment /home/manurip/Documents/Work/Repositories/ballerina-gke-deployment/kubernetes/hello-world-service-deployment
 ```
 
 After the build is complete, the Docker image is created and pushed to Docker Hub. The Kubernetes deployment artifacts are generated as well.
@@ -255,7 +255,7 @@ gke-ballerina-demo-clust-default-pool-8a9f3889-l6ks   Ready     <none>    4h    
 Since the Kubernetes artifacts were automatically built in the earlier Ballerina application build, we simply have to run the following command to deploy the Ballerina service in GKE:
 
 ```bash
-$ kubectl apply -f /home/manurip/Documents/Work/Repositories/ballerina-gcp-deployment/kubernetes/
+$ kubectl apply -f /home/manurip/Documents/Work/Repositories/ballerina-gke-deployment/kubernetes/
 service "hello-world" created
 deployment.extensions "hello-world-service-deployment" created
 ```
