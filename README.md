@@ -27,15 +27,13 @@ In this guide, you will build a simple Ballerina Hello World service, and you wi
 ## Prerequisites
 
 - [Ballerina Distribution](https://ballerina.io/learn/getting-started/)
-- A Text Editor or an IDE
+- A Text Editor or an IDE 
+> **Tip**: You can install the following Ballerina IDE plugins: [VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
 - [Docker](https://docs.docker.com/engine/installation/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Docker Hub Account](https://hub.docker.com/)
 - [Google Cloud Platform account](https://cloud.google.com/)
 
-### Optional requirements
-
-- Ballerina IDE plugins ([VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina))
 
 ## Implementation
 
