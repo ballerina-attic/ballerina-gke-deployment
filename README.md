@@ -22,7 +22,7 @@ In this guide, you will build a simple Ballerina Hello World service, and you wi
 
 | Ballerina Language Version
 | --------------------------
-| 0.990.0
+| 0.990.3
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ listener http:Listener httpListener = new(9090);
     image:"<username>/hello_world_service:latest",
     push:true,
     username:"<username>",
-    password:"<password"
+    password:"<password>"
 }
 // By default, Ballerina exposes a service via HTTP/1.1.
 service hello on httpListener {
@@ -225,7 +225,7 @@ Next step is creating a kubernetes cluster in the project we just created.
 With a command similar to the following, you can create a cluster with minimal resources.
 
 ```bash
-gcloud container clusters create ballerina_demo_cluster --zone us-central1 --machine-type g1-small --disk-size 30GB --max-nodes-per-pool 1
+gcloud container clusters create ballerina-demo-cluster --zone us-central1 --machine-type g1-small --disk-size 30GB --max-nodes-per-pool 100
 ```
 
 With the following command you can verify the cluster is running.
@@ -233,7 +233,7 @@ With the following command you can verify the cluster is running.
 ```bash
 $ gcloud container clusters list
 
-ballerina-demo-cluster  us-central1  1.9.7-gke.11    35.239.235.173  g1-small      1.9.7-gke.11  3          RUNNING
+ballerina-demo-cluster  us-central1  1.11.6-gke.2    35.239.88.226  g1-small      1.11.6-gke.2  9          RUNNING
 ```
 
 Also, with `kubectl get nodes` commands you can verify the connection to the cluster. In next steps we'll be using
@@ -243,9 +243,15 @@ Please note that when you create a cluster using gcloud container clusters creat
 ```bash
 $ kubectl get nodes
 NAME                                                  STATUS    ROLES     AGE       VERSION
-gke-ballerina-demo-clust-default-pool-70ca2fd4-jv97   Ready     <none>    4h        v1.9.7-gke.11
-gke-ballerina-demo-clust-default-pool-77c556be-x42n   Ready     <none>    4h        v1.9.7-gke.11
-gke-ballerina-demo-clust-default-pool-8a9f3889-l6ks   Ready     <none>    4h        v1.9.7-gke.11
+gke-ballerina-demo-clust-default-pool-59009c98-h049   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-59009c98-jvms   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-59009c98-mqb3   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-9add0340-0gwc   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-9add0340-3q8w   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-9add0340-vzg2   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-d5a16e92-52ns   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-d5a16e92-5m2r   Ready     <none>    1m        v1.11.6-gke.2
+gke-ballerina-demo-clust-default-pool-d5a16e92-c8b9   Ready     <none>    1m        v1.11.6-gke.2
 ```
 
 
@@ -263,17 +269,17 @@ When you list the pods in Kubernetes, it shows that the current application was 
 
 ```bash
 $ kubectl get pods
-NAME                                                     READY     STATUS    RESTARTS   AGE
-hello-world-service-deployment-6ccccb4dd8-wd78n          1/1       Running   0          3h
+NAME                                             READY     STATUS    RESTARTS   AGE
+hello-world-service-deployment-7c66466bc-9bh2c   1/1       Running   0          20s
 ```
 
 After verifying that the pod is alive, we can list the services to see the status of the Kubernetes service created to represent our Ballerina service:
 
 ```bash
 $ kubectl get svc
-NAME             TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)        AGE
-hello-world      LoadBalancer   10.19.255.12    104.154.64.112   80:30736/TCP   3h
-kubernetes       ClusterIP      10.19.240.1     <none>           443/TCP        4h
+NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
+hello-world   LoadBalancer   10.19.243.17   35.225.48.129   80:32515/TCP   1m
+kubernetes    ClusterIP      10.19.240.1    <none>          443/TCP        3m
 ```
 
 ## Testing

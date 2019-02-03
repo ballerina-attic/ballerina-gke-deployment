@@ -14,7 +14,7 @@ listener http:Listener httpListener = new(9090);
     image:"<username>/hello_world_service:latest",
     push:true,
     username:"<username>",
-    password:"<password"
+    password:"<password>"
 }
 // By default, Ballerina exposes a service via HTTP/1.1.
 service hello on httpListener {
