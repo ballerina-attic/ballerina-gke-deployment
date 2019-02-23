@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ballerina-guides/ballerina-gke-deployment.svg?branch=master)](https://travis-ci.org/ballerina-guides/ballerina-gke-deployment)
 
-# Ballerina Deployment with Google Cloud Platoform Kubernetes Engine
+# Ballerina Deployment with Google Cloud Platform Kubernetes Engine
 
 [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/) is a powerful cluster manager and orchestration system for running your Docker containers
 
