@@ -4,7 +4,7 @@
 
 [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/) is a powerful cluster manager and orchestration system for running your Docker containers
 
-> In this guide you will learn about building a Ballerina service and deploying it on Google Kubernetes Enginer (GKE).
+> In this guide you will learn about building a Ballerina service and deploying it on Google Kubernetes Engine (GKE).
 
 The following are the sections available in this guide.
 
