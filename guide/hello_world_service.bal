@@ -10,7 +10,7 @@ import ballerinax/kubernetes;
 listener http:Listener httpListener = new(9090);
 
 @kubernetes:Deployment {
-    enableLiveness:true,
+    livenessProbe: true,
     image:"<username>/hello_world_service:latest",
     push:true,
     username:"<username>",
