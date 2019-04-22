@@ -22,7 +22,7 @@ In this guide, you will build a simple Ballerina Hello World service, and you wi
 
 | Ballerina Language Version
 | --------------------------
-| 0.990.3
+| 0.991.0
 
 ## Prerequisites
 
